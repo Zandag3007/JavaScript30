@@ -1,0 +1,83 @@
+html {
+    background: url(https://static.wixstatic.com/media/a64726_8b0e3cb2371c4d58ab569c6a5d521719~mv2.jpg/v1/fill/w_2210,h_2210,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/BEEPLE-EVERYDAYS_THE_FIRST_5000_DAYS_3k_.jpg);
+    background-size: cover;
+    text-align: center;
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    font-size: 2rem;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.clock {
+    background: radial-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
+    width: 30rem;
+    height: 30rem;
+    border: 20px solid #7FFFD4;
+    /*border-color: yellow green blue yellow;*/
+    border-radius: 50%;
+    margin: 50px auto;
+    position: relative;
+    padding: 10rem;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 3px #ccffee,
+    inset 0 0 10px black,
+    0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hand {
+    width: 115px;
+    height: 4px;
+    border: solid #000066 4px;
+    border-right: solid #000066 100px;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.1s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.second-hand {
+    width: 220px;
+    height: 3px;
+    background: #e6c300;
+    border: none;
+}
+
+.second-hand-back {
+    width: 50px;
+}
+
+.hour-hand {
+    width: 30px;
+}
+
+.minute-hand-back, .hour-hand-back {
+    width: 35px;
+    height: 12px;
+    background: #000066;
+    border: none;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    top: 48%;
+    position: relative;
+    background-color: #e6c300;
+    border-radius: 50%;
+    display: inline-block;
+}
