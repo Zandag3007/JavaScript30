@@ -26,23 +26,28 @@
 
 //VERSION FAIL
 
-// let oneSecond = 1000;
-// let seconds = new Date().getSeconds();
-// let minutes = new Date().getMinutes();
-// let hours = new Date().getHours();
-// let secondsDegree = 90 + ((seconds / 60) * 360);
-// let minutesDegree = 90 + ((minutes / 60) * 360);
-// let hoursDegree = 90 + ((hours / 12) * 360);
-//
-// window.setInterval(rotateHand("second-hand", secondsDegree), oneSecond);
-// window.setInterval(rotateHand("minute-hand", minutesDegree), oneSecond);
-// window.setInterval(rotateHand("hour-hand", hoursDegree), oneSecond);
-//
-// function rotateHand(handType, degree) {
-//     console.log('"' + handType + '"');
-//     console.log("degree = " + degree);
-//     return document.querySelector('"' + handType + '"').style.transform = "rotate(" + degree + "deg)";
-// }
+// comments Anouk:
+// should work with callback function
+// new Date should be created once (as a separate variable)
+// there is no need to add quotes to a string variable
+
+let oneSecond = 1000;
+let seconds = new Date().getSeconds();
+let minutes = new Date().getMinutes();
+let hours = new Date().getHours();
+let secondsDegree = 90 + ((seconds / 60) * 360);
+let minutesDegree = 90 + ((minutes / 60) * 360);
+let hoursDegree = 90 + ((hours / 12) * 360);
+
+window.setInterval(rotateHand);
+window.setInterval(rotateHand("minute-hand", minutesDegree), oneSecond);
+window.setInterval(rotateHand("hour-hand", hoursDegree), oneSecond);
+
+function rotateHand(handType, degree) {
+    console.log('"' + handType + '"');
+    console.log("degree = " + degree);
+    document.querySelector('"' + handType + '"').style.transform = "rotate(" + degree + "deg)";
+}
 
 
 //EXAMPLE
@@ -51,12 +56,12 @@
 //it has one interval function every second which checks the value of seconds/minutes/hours
 //when the value increases, the rotation (in degrees) increases along with it
 
-window.setInterval(rotateHand, 1000);
+window.setInterval(rotateHand1, 1000);
 let startingAngleSeconds = 90;
 let startingAngleMinutes = 90;
 let startingAngleHours = 90;
 
-function rotateHand() {
+function rotateHand1() {
     let now = new Date();
     let seconds = now.getSeconds();
     let minutes = now.getMinutes();
