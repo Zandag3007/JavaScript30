@@ -39,6 +39,8 @@ let secondsDegree = 90 + ((seconds / 60) * 360);
 let minutesDegree = 90 + ((minutes / 60) * 360);
 let hoursDegree = 90 + ((hours / 12) * 360);
 
+//////////// BEGIN OF SUGGESTIONS :) /////////////
+
 // Using an anonymous function
 window.setInterval(() => { rotateHand("second-hand", secondsDegree) }, oneSecond);
 window.setInterval(() => { rotateHand("minute-hand", minutesDegree) }, oneSecond);
@@ -73,6 +75,15 @@ rotations.forEach((rotation) => {
         document.querySelector('"' + rotation.handType + '"').style.transform = "rotate(" + rotation.degree + "deg)";
     }, oneSecond);
 });
+
+//////////// END OF SUGGESTIONS :( /////////////
+
+
+
+
+
+
+
 
 //EXAMPLE
 
