@@ -39,9 +39,15 @@ let secondsDegree = 90 + ((seconds / 60) * 360);
 let minutesDegree = 90 + ((minutes / 60) * 360);
 let hoursDegree = 90 + ((hours / 12) * 360);
 
+// Using an anonymous function
 window.setInterval(() => { rotateHand("second-hand", secondsDegree) }, oneSecond);
 window.setInterval(() => { rotateHand("minute-hand", minutesDegree) }, oneSecond);
 window.setInterval(() => { rotateHand("hour-hand", hoursDegree) }, oneSecond);
+
+// Using bind()
+setInterval(rotateHand.bind("second-hand", secondsDegree), oneSecond);
+setInterval(rotateHand.bind("minute-hand", minutesDegree), oneSecond);
+setInterval(rotateHand.bind("hour-hand", hoursDegree), oneSecond);
 
 function rotateHand(handType, degree) {
     console.log('"' + handType + '"');
