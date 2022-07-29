@@ -146,3 +146,4 @@ function rotateHand1() {
     document.querySelector(".hour-hand").style.transform = "rotate(" + hoursDegree + "deg)";
     document.querySelector(".hour-hand-back").style.transform = "rotate(" + (hoursDegree - 180) + "deg)";
 }
+
