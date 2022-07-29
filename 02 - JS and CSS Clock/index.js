@@ -76,6 +76,22 @@ rotations.forEach((rotation) => {
     }, oneSecond);
 });
 
+// Another fun thing to know: you can use variables in strings like this:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+function logRotationInfo(handType, degree) {
+    console.log('Instead of logging like this: ', handType);
+    console.log('Or like this (+ makes the entire thing a string, while , does not): ' + handType);
+
+    console.log('You can create strings like this:');
+    console.log(`handType: ${handType}`);
+
+    const somethingToLog = `degree: ${degree}`;
+    console.log(somethingToLog);
+    console.log('And you can combine stuff too: ' + somethingToLog)
+}
+
+logRotationInfo('haaaandType', 'degreeeee');
+
 //////////// END OF SUGGESTIONS :( /////////////
 
 
