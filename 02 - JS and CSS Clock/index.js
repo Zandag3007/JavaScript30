@@ -67,6 +67,12 @@ function rotateHand(handType, degree) {
     document.querySelector('"' + handType + '"').style.transform = "rotate(" + degree + "deg)";
 }
 
+// We can even take it a step further
+rotations.forEach((rotation) => {
+    setInterval(() => {
+        document.querySelector('"' + rotation.handType + '"').style.transform = "rotate(" + rotation.degree + "deg)";
+    }, oneSecond);
+});
 
 //EXAMPLE
 
