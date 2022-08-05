@@ -47,21 +47,21 @@ window.setInterval(() => { rotateHand("minute-hand", minutesDegree) }, oneSecond
 window.setInterval(() => { rotateHand("hour-hand", hoursDegree) }, oneSecond);
 
 // Using bind()
-setInterval(rotateHand.bind("second-hand", secondsDegree), oneSecond);
-setInterval(rotateHand.bind("minute-hand", minutesDegree), oneSecond);
-setInterval(rotateHand.bind("hour-hand", hoursDegree), oneSecond);
+// setInterval(rotateHand.bind("second-hand", secondsDegree), oneSecond);
+// setInterval(rotateHand.bind("minute-hand", minutesDegree), oneSecond);
+// setInterval(rotateHand.bind("hour-hand", hoursDegree), oneSecond);
 
 // Since the 3 functions are similar, we can even do this:
 // Kind of overkill in this use case, but good to be aware of this technique
-const rotations = [
-    { handType: 'second-hand', degree: secondsDegree },
-    { handType: 'minute-hand', degree: minutesDegree },
-    { handType: 'hour-hand', degree: hoursDegree }
-];
-
-rotations.forEach((rotation) => {
-    setInterval(rotateHand.bind(rotation.handType, rotation.degree), oneSecond);
-});
+// const rotations = [
+//     { handType: 'second-hand', degree: secondsDegree },
+//     { handType: 'minute-hand', degree: minutesDegree },
+//     { handType: 'hour-hand', degree: hoursDegree }
+// ];
+//
+// rotations.forEach((rotation) => {
+//     setInterval(rotateHand.bind(rotation.handType, rotation.degree), oneSecond);
+// });
 
 function rotateHand(handType, degree) {
     console.log('"' + handType + '"');
@@ -70,11 +70,11 @@ function rotateHand(handType, degree) {
 }
 
 // We can even take it a step further
-rotations.forEach((rotation) => {
-    setInterval(() => {
-        document.querySelector('"' + rotation.handType + '"').style.transform = "rotate(" + rotation.degree + "deg)";
-    }, oneSecond);
-});
+// rotations.forEach((rotation) => {
+//     setInterval(() => {
+//         document.querySelector('"' + rotation.handType + '"').style.transform = "rotate(" + rotation.degree + "deg)";
+//     }, oneSecond);
+// });
 
 // Another fun thing to know: you can use variables in strings like this:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
