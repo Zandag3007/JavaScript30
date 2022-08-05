@@ -39,15 +39,66 @@ let secondsDegree = 90 + ((seconds / 60) * 360);
 let minutesDegree = 90 + ((minutes / 60) * 360);
 let hoursDegree = 90 + ((hours / 12) * 360);
 
-window.setInterval(rotateHand);
-window.setInterval(rotateHand("minute-hand", minutesDegree), oneSecond);
-window.setInterval(rotateHand("hour-hand", hoursDegree), oneSecond);
+//////////// BEGIN OF SUGGESTIONS :) /////////////
+
+// Using an anonymous function
+window.setInterval(() => { rotateHand("second-hand", secondsDegree) }, oneSecond);
+window.setInterval(() => { rotateHand("minute-hand", minutesDegree) }, oneSecond);
+window.setInterval(() => { rotateHand("hour-hand", hoursDegree) }, oneSecond);
+
+// Using bind()
+// setInterval(rotateHand.bind("second-hand", secondsDegree), oneSecond);
+// setInterval(rotateHand.bind("minute-hand", minutesDegree), oneSecond);
+// setInterval(rotateHand.bind("hour-hand", hoursDegree), oneSecond);
+
+// Since the 3 functions are similar, we can even do this:
+// Kind of overkill in this use case, but good to be aware of this technique
+// const rotations = [
+//     { handType: 'second-hand', degree: secondsDegree },
+//     { handType: 'minute-hand', degree: minutesDegree },
+//     { handType: 'hour-hand', degree: hoursDegree }
+// ];
+//
+// rotations.forEach((rotation) => {
+//     setInterval(rotateHand.bind(rotation.handType, rotation.degree), oneSecond);
+// });
 
 function rotateHand(handType, degree) {
     console.log('"' + handType + '"');
     console.log("degree = " + degree);
     document.querySelector('"' + handType + '"').style.transform = "rotate(" + degree + "deg)";
 }
+
+// We can even take it a step further
+// rotations.forEach((rotation) => {
+//     setInterval(() => {
+//         document.querySelector('"' + rotation.handType + '"').style.transform = "rotate(" + rotation.degree + "deg)";
+//     }, oneSecond);
+// });
+
+// Another fun thing to know: you can use variables in strings like this:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+function logRotationInfo(handType, degree) {
+    console.log('Instead of logging like this: ', handType);
+    console.log('Or like this (+ makes the entire thing a string, while , does not): ' + handType);
+
+    console.log('You can create strings like this:');
+    console.log(`handType: ${handType}`);
+
+    const somethingToLog = `degree: ${degree}`;
+    console.log(somethingToLog);
+    console.log('And you can combine stuff too: ' + somethingToLog)
+}
+
+logRotationInfo('haaaandType', 'degreeeee');
+
+//////////// END OF SUGGESTIONS :( /////////////
+
+
+
+
+
+
 
 
 //EXAMPLE
@@ -95,3 +146,4 @@ function rotateHand1() {
     document.querySelector(".hour-hand").style.transform = "rotate(" + hoursDegree + "deg)";
     document.querySelector(".hour-hand-back").style.transform = "rotate(" + (hoursDegree - 180) + "deg)";
 }
+
